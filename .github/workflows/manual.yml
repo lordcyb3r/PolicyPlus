@@ -18,6 +18,7 @@ jobs:
         
       - name: Embed version
         run: |
+         echo $env:GITHUB_WORKSPACE
           cd $env:GITHUB_WORKSPACE
           cmd /c version.bat
 
@@ -32,4 +33,4 @@ jobs:
         with:
           name: PolicyPlus-release
           #path:'$env:GITHUB_WORKSPACE\PolicyPlus\bin\release'
-          path: bin\release\
+          path: /bin/release/
