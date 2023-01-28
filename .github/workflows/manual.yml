@@ -19,8 +19,8 @@ jobs:
       - name: Embed version
         run: |
           echo $env:GITHUB_WORKSPACE
-       #   cd $env:GITHUB_WORKSPACE
-        #  #cmd /c version.bat
+          cd $env:GITHUB_WORKSPACE
+          cmd /c version.bat
 
       - name: Set up MSBuild
         #uses: microsoft/setup-msbuild@v1.0.2
@@ -29,6 +29,11 @@ jobs:
       - name: Compile
         run: msbuild.exe $env:GITHUB_WORKSPACE\PolicyPlus\PolicyPlus.sln /p:platform="Any CPU" /p:configuration="Release" -verbosity:diag
         
+      - name: output debug
+        run: |
+          echo 'Folder Structure:'
+          echo $env:GITHUB_WORKSPACE
+          
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
