@@ -25,6 +25,8 @@ jobs:
       - name: Set up MSBuild
         #uses: microsoft/setup-msbuild@v1.0.2
         uses: microsoft/setup-msbuild@v1.1
+        with:
+          msbuild-architecture: x64
         
       - name: Compile
         run: msbuild.exe $env:GITHUB_WORKSPACE\PolicyPlus\PolicyPlus.sln /p:platform="Any CPU" /p:configuration="Release" #-verbosity:diag
