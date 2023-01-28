@@ -27,7 +27,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1.1
         
       - name: Compile
-        run: msbuild.exe $env:GITHUB_WORKSPACE\PolicyPlus\PolicyPlus.sln /p:platform="Any CPU" /p:configuration="Release" -verbosity:diag
+        run: msbuild.exe $env:GITHUB_WORKSPACE\PolicyPlus\PolicyPlus.sln /p:platform="Any CPU" /p:configuration="Release" #-verbosity:diag
         
       - name: output debug
         run: |
@@ -38,5 +38,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: PolicyPlus-release
-          #path:'$env:GITHUB_WORKSPACE\PolicyPlus\PolicyPlus\bin\release'
-          path: /bin/release/
+          #path:'$env:GITHUB_WORKSPACE\PolicyPlus\PolicyPlus\bin\Release\'
+          #path: /bin/release/
+          path: 'D:\a\PolicyPlus\PolicyPlus\PolicyPlus\bin\Release\'
