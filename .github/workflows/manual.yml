@@ -18,12 +18,13 @@ jobs:
         
       - name: Embed version
         run: |
-         echo $env:GITHUB_WORKSPACE
-          cd $env:GITHUB_WORKSPACE
-          cmd /c version.bat
+          echo $env:GITHUB_WORKSPACE
+       #   cd $env:GITHUB_WORKSPACE
+        #  #cmd /c version.bat
 
       - name: Set up MSBuild
-        uses: microsoft/setup-msbuild@v1.0.2
+        #uses: microsoft/setup-msbuild@v1.0.2
+        uses: microsoft/setup-msbuild@v1.1
         
       - name: Compile
         run: msbuild.exe $env:GITHUB_WORKSPACE\PolicyPlus\PolicyPlus.sln /p:platform="Any CPU" /p:configuration="Release" -verbosity:diag
@@ -32,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: PolicyPlus-release
-          #path:'$env:GITHUB_WORKSPACE\PolicyPlus\bin\release'
+          #path:'$env:GITHUB_WORKSPACE\PolicyPlus\PolicyPlus\bin\release'
           path: /bin/release/
